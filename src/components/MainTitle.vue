@@ -1,35 +1,48 @@
 <template>
   <div>
     <h1>{{ props.title }}</h1>
-    <h3>Installed CLI Plugins</h3>
+    <h3>{{ props.subTitle }}</h3>
     <ul>
       <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
+        <a href="https://vuejs.org" target="_blank" rel="noopener">{{
+          props.description
+        }}</a>
       </li>
     </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-    </ul>
+    <button @click="onClick">Show Detail!</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps, defineEmits, withDefaults } from 'vue';
+
+// Props
+// interface Props {
+//   title: string;
+// }
+// const props = defineProps<Props>();
+
+// Props Default Values
 interface Props {
-  title: string;
+  title?: string;
+  subTitle?: string;
+  description?: string;
 }
-const props = defineProps<Props>();
+
+const props = withDefaults(defineProps<Props>(), {
+  title: 'Welcome to Your Vue.js + TypeScript App',
+  subTitle: 'Tech Stack',
+  description: 'Vue3 + Typescript + Vuex',
+});
+
+// type-based
+const emit = defineEmits<{
+  (e: 'change', value: string): void;
+}>();
+
+function onClick() {
+  emit('change', 'detail!');
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

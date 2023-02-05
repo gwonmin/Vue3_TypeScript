@@ -1,4 +1,6 @@
 <template>
+  <h2>Real Time Clork</h2>
+  <RealTimeClork />
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -6,6 +8,9 @@
   <router-view />
 </template>
 
+<script setup lang="ts">
+import RealTimeClork from '@/components/RealTimeClork.vue';
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
