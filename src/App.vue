@@ -10,6 +10,7 @@
     <template v-slot:main></template>
     <template v-slot:footer></template>
   </HeaderMainFooterLayout>
+  <el-backtop :right="100" :bottom="100" />
 </template>
 
 <script setup lang="ts">
