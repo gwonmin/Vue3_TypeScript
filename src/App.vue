@@ -1,15 +1,25 @@
 <template>
-  <h2>Real Time Clork</h2>
-  <RealTimeClork />
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <HeaderMainFooterLayout>
+    <template v-slot:header>
+      <RealTimeClork />
+      <BasicTab :tapOption="tapOption">
+        <template v-slot:Home><HomeView /></template>
+        <template v-slot:About><AboutView /></template>
+      </BasicTab>
+    </template>
+    <template v-slot:main></template>
+    <template v-slot:footer></template>
+  </HeaderMainFooterLayout>
 </template>
 
 <script setup lang="ts">
+import HeaderMainFooterLayout from '@/components/HeaderMainFooterLayout.vue';
+import BasicTab from '@/components/BasicTab.vue';
 import RealTimeClork from '@/components/RealTimeClork.vue';
+import HomeView from './views/HomeView.vue';
+import AboutView from './views/AboutView.vue';
+
+const tapOption = ['Home', 'About'];
 </script>
 <style lang="scss">
 #app {
