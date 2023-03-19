@@ -1,33 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <MainTitle @change="onChange" />
-    {{ dataFromMainTitle.content }}
-    <h2>Today</h2>
-    <h3>{{ getToday }}</h3>
-    <h2>Computed RealTime(reset when you refresh)</h2>
-    <h3>{{ getComputedRealTime }}</h3>
-  </div>
+  <LoginForm
+    :id="userInfo.id"
+    :password="userInfo.password"
+    @loginFormChange="loginForm"
+  />
+  <el-button @click="onClickSignInButton">Sign In</el-button>
+  <el-button @click="onClickLookAroundButton">Look around</el-button>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue';
-import MainTitle from '@/components/MainTitle.vue'; // @ is an alias to /src
-import dayjs from 'dayjs';
+import router from '@/router';
+import { reactive } from 'vue';
+import LoginForm from '../components/LoginForm.vue';
 
-const today = new Date();
-const getToday = ref<Date | string>(dayjs(today).format('YYYY-MM-DD'));
-
-const getComputedRealTime = computed<Date>(() => {
-  return new Date();
-});
-
-interface DataFromMainTitle {
-  content: string;
+interface UserInfo {
+  id: string;
+  password: string;
 }
-const dataFromMainTitle: DataFromMainTitle = reactive({ content: '' });
+const userInfo: UserInfo = reactive({ id: '', password: '' });
 
-function onChange(data: string) {
-  dataFromMainTitle.content = data;
-}
+const loginForm = (userInfo: object) => {
+  // 로그인 로직 들어갈 자리
+  console.log(userInfo);
+};
+
+const onClickLookAroundButton = () => {
+  router.push({ path: '/about' });
+};
+const onClickSignInButton = () => {
+  router.push({ path: '/signin' });
+};
 </script>
