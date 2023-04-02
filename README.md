@@ -1,5 +1,7 @@
 # project
 
+vue3 + composition API + pinia
+
 ## Project setup
 ```
 npm install
