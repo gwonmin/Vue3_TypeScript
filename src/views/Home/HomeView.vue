@@ -4,14 +4,17 @@
     :password="userInfo.password"
     @loginFormChange="loginForm"
   />
-  <el-button @click="onClickSignInButton">Sign In</el-button>
+  <el-button @click="onClickSignInButton">Sign Up</el-button>
   <el-button @click="onClickLookAroundButton">Look around</el-button>
 </template>
 
 <script setup lang="ts">
 import router from '@/router';
 import { reactive } from 'vue';
-import LoginForm from '../components/LoginForm.vue';
+import LoginForm from '../../components/LoginForm.vue';
+import { useCounterStore } from '@/store/counter';
+
+const store = useCounterStore();
 
 interface UserInfo {
   id: string;
@@ -28,6 +31,6 @@ const onClickLookAroundButton = () => {
   router.push({ path: '/about' });
 };
 const onClickSignInButton = () => {
-  router.push({ path: '/signin' });
+  router.push({ path: '/signup' });
 };
 </script>

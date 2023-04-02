@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -24,7 +24,13 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "src/router/index.js",
+    "src/router/routes.js",
+    "src/router/index.js",
+    "src/router/routes.js",
+    "src/views/index.js",
+    "src/views/index.js"
   ],
   "exclude": ["node_modules"]
 }

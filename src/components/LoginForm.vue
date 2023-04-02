@@ -18,7 +18,6 @@
 
 <script setup lang="ts">
 import { defineProps, defineEmits, withDefaults, reactive } from 'vue';
-import { RouterLink } from 'vue-router';
 
 interface Props {
   id: string;
