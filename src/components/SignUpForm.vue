@@ -3,11 +3,10 @@
     ref="signInForm"
     :model="ruleForm"
     status-icon
-    :rules="rules"
     label-width="120px"
     style="max-width: 460px"
   >
-    <el-form-item label="email" prop="email">
+    <el-form-item label="Email" prop="email">
       <el-input v-model="ruleForm.pass" />
     </el-form-item>
     <el-form-item label="Password" prop="password">
